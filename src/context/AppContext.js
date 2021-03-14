@@ -1,5 +1,7 @@
 import { createContext, useReducer } from "react";
+import { v4 as uuidv4 } from "uuid";
 
+// The reducer is used to update the state, based on the action
 const AppReducer = (state, action) => {
   switch (action.type) {
     case "ADD_EXPENSE":
@@ -14,19 +16,24 @@ const AppReducer = (state, action) => {
           (expense) => expense.id !== action.payload
         ),
       };
+    case "SET_BUDGET": {
+      return { ...state, budget: action.payload };
+    }
     default:
       return state;
   }
 };
 
+// Sets the initial state when the app loads
 const initialState = {
   budget: 3000,
   expenses: [
-    { id: 12, name: "TV", cost: 500 },
-    { id: 13, name: "Headphones", cost: 200 },
+    { id: uuidv4(), name: "TV", cost: 500 },
+    { id: uuidv4(), name: "Headphones", cost: 200 },
   ],
 };
 
+// Creates the context that our components import and use to get the state
 export const AppContext = createContext();
 
 // The provider is a component that wraps the components which we want to pass the state to.
