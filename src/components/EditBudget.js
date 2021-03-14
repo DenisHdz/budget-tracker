@@ -8,7 +8,7 @@ const EditBudget = (props) => {
     <>
       <input
         type="number"
-        class="form-control mr-3"
+        className="form-control mr-3"
         id="name"
         value={value}
         required
@@ -16,7 +16,7 @@ const EditBudget = (props) => {
       />
       <button
         type="button"
-        class="btn btn-primary"
+        className="btn btn-primary"
         required
         onClick={() => handleSaveClick(value)}
       >

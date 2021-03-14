@@ -6,7 +6,7 @@ const ExpenseItem = (props) => {
   const { id, name, cost } = props;
   const { dispatch } = useContext(AppContext);
 
-  const removeExpense = () => {
+  const handleRemoveExpense = () => {
     dispatch({
       type: "REMOVE_EXPENSE",
       payload: id,
@@ -18,7 +18,7 @@ const ExpenseItem = (props) => {
       {name}
       <div>
         <span className="badge badge-primary badge-pill mr-3">£{cost}</span>
-        <TiDelete size="1.5em" onClick={removeExpense} />
+        <TiDelete size="1.5em" onClick={handleRemoveExpense} />
       </div>
     </li>
   );

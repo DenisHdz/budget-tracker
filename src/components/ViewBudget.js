@@ -6,7 +6,11 @@ const ViewBudget = (props) => {
   return (
     <>
       <span>Budget: £{budget}</span>
-      <button type="button" class="btn btn-primary" onClick={handleEditClick}>
+      <button
+        type="button"
+        className="btn btn-primary"
+        onClick={handleEditClick}
+      >
         Edit
       </button>
     </>
